@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Iletisim";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<section id="content">
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1529.5221056975681!2d32.64707573489863!3d39.940400726273616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d339e880eb44d5%3A0x7a72ce28d0e703dd!2sS%C3%BCvari%2C%201751.%20Sk.%20No%3A8%2C%2006794%20Etimesgut%2FAnkara!5e0!3m2!1str!2str!4v1671910371068!5m2!1str!2str" width="100%" height="380" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h4><strong>İletişim</strong></h4>
+
+                <div class="alert alert-info" >@ViewBag.Uyari</div>
+                <div id="errormessage"></div>
+                <form action="/Home/Iletisim/" method="post" role="form" class="contactForm">
+                    <div class="form-group">
+                        <input type="text" name="isim" class="form-control" id="name" placeholder="Ad" data-rule="minlen:4" data-msg="Lütfen en az 4 karakter girin." />
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" required />
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="konu" id="subject" placeholder="Konu" data-rule="minlen:4" required />
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="mesaj" rows="5" data-rule="required" required placeholder="Mesaj"></textarea>
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="text-center"><button type="submit" class="btn btn-theme">Send Message</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+

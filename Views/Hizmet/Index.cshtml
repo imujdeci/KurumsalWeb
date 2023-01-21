@@ -1,0 +1,50 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Hizmet>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Hizmetler</h2>
+
+<p>
+    <a class="btn btn-default" href="/Hizmet/Create">Yeni Hizmet Ekle</a>
+    @*@Html.ActionLink("Yeni Hizmet Oluştur", "Create")*@
+</p>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>#</th>
+        <th>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResimURL)
+        </th>
+        <th>İşlemler</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HizmetId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Baslik)
+        </td>
+        <td>
+            @Html.Raw(item.Aciklama)
+        </td>
+        <td>
+            <img width="100" height="100" src="@item.ResimURL"/>
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id = item.HizmetId }) |
+            @Html.ActionLink("Sil", "Delete", new { id = item.HizmetId })
+        </td>
+    </tr>
+}
+
+</table>
